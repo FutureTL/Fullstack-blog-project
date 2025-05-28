@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "node": "^22.16.0"
+  },
+  "name": "blog-project",
+  "version": "1.0.0",
+  "description": "This is my personal blogging project",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "blog"
+  ],
+  "author": "Ravroop Kour",
+  "license": "ISC"
+}
