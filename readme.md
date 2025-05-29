@@ -24,4 +24,14 @@ Difference between Dev dependency and Dependency in package.json file
 -Dev dependencies help during development of code not when it is in production. Eg- nodemon or prettier.
 -Dependencies needed while writing code and also later in production. like any package i install-cors, multer.
 
+We will use two basic dev dependencies which are included in all projects-
+         1.nodemon
+         2.prettier
+      
+-we can install them as-
+         npm i -D nodemon 
+         npm i -D prettier
+
+-D here signifies that both these are being installed as dev dependencies.
+
 
