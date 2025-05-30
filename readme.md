@@ -34,4 +34,13 @@ We will use two basic dev dependencies which are included in all projects-
 
 -D here signifies that both these are being installed as dev dependencies.
 
+External modules are used in 2 ways-
+   1. require (which doesn't require any changes )
+   2. import statements (refer below article)
+   -we can add "type"
+:"module" in our package.json file.
+
+link for more info: https://herreranacho.medium.com/using-import-instead-of-require-in-node-js-1957ff5ed720
+
+
 

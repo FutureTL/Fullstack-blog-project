@@ -1,10 +1,12 @@
 {
   "dependencies": {
+    "express": "^5.1.0",
     "mongodb": "^6.16.0",
     "node": "^22.16.0"
   },
   "name": "blog-project",
   "version": "1.0.0",
+  "type": "module",
   "description": "This is my personal blogging project",
   "main": "index.js",
   "devDependencies": {
