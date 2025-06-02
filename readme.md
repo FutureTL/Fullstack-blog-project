@@ -55,3 +55,8 @@ I was getting mongodb connection error. My mistake I had not imported the dotenv
 
 After this the problem was solved.
 
+Read about the dependencies- 
+   1. cookie-parser(https://expressjs.com/en/resources/middleware/cookie-parser.html)
+
+   
+
