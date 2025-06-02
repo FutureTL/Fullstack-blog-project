@@ -42,5 +42,16 @@ External modules are used in 2 ways-
 
 link for more info: https://herreranacho.medium.com/using-import-instead-of-require-in-node-js-1957ff5ed720
 
+         CONNECTING THE DATABASE
+-one major issue I faced:
+I was getting mongodb connection error. My mistake I had not imported the dotenv file properly. For that we have to write
+         1.import dotenv from "dotenv"
+         2. In the same file where we have imported it, we also have to configure it as-
+         dotenv.config({
+            path: './env'
+         })
+         3. we have to make some changes in the scripts in package.json. EWHY? because this method of importing dotenv is not directly supported right now so we have the scripts value as-
+"nodemon -r dotenv/config --experimental-json-modules src/db/connect.js"
 
+After this the problem was solved.
 
