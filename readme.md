@@ -60,5 +60,11 @@ Read about the dependencies-
 
    
 
+One important mistake I made during the project- i forgot to add .gitignore file in my project resulting in my .env file being exposed in the github repository. So revert this-
+   1. Add .gitignore file in the project and write 
+   .env in it. 
+   2. in the bash terminal, write git rm --cache .env
+   3. commit the changes and push them.
 
+The problem is solved! 
 
