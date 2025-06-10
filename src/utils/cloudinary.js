@@ -27,17 +27,19 @@ try {
     return null;
   }
   
-  const response = await cloudinary.v2.uploader
+  //if I have imported {v2 as cloudinary then we have to write cloudinary only in place of cloudinary.v2}
+  const response = await cloudinary.uploader
     .upload(localFilePath,{
     
-      use_filename: false,
+      use_filename: true,
       resource_type: "auto"
     })
     console.log("file uploaded successfully to cloudinary: ", response);
+    return response;
 
     
   } catch (error) {
-    
+    console.log("error in uploading on clodinary: ", error)
   }
 
 }

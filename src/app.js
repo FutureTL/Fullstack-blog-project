@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 const app = express()
 
 
-//mostly woth middlewares or configurations, we use app.use()
+//mostly with middlewares or configurations, we use app.use()
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
     credentials:true
@@ -14,13 +14,25 @@ app.use(cors({
 app.use(express.json({
     limit:"16kb"
 }))
+//for receiving json data
 
 app.use(express.urlencoded({
     limit:"20kb"
 }))
+//for receiving url data
 
 app.use(express.static("public"))
+//if there are any files they will get saved in this location.
 
 app.use(cookieParser())  //use: so that we can access the cookies from the browser of the user.
                          //basically so that we can perform crud operations on the cookies of the user.
+
+
+//we will import our routes here and using a middleware implement them:
+import UserRoutes from "./route/user.route.js";
+
+app.use("/api/v1/user", UserRoutes); //interacting with routes treating them as a 
+                                      //middleware.
+
+
 export { app };

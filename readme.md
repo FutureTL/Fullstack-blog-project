@@ -68,3 +68,16 @@ One important mistake I made during the project- i forgot to add .gitignore file
 
 The problem is solved! 
 
+//some information needs to be added here
+June 8th 2025
+- access and refresh tokens generated in our user model code.
+
+Json web token -https://github.com/dwyl/learn-json-web-tokens/blob/main/README.md
+- now I have to write logic for registering and logging the user.
+
+Register user logic will be written in  user.controller.js
+
+I wrote the entire register user logic along with also modifying the code of the routes to finally check it on postman. 
+I was getting the bug- avatar image not found (user.controller.js line 62)
+
+Solution: I changed upload.single used in multer.middleware.js code to -> upload.fields and the problem got resolved.

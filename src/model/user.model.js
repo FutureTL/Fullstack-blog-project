@@ -11,7 +11,7 @@ username:{
     unique:true
 },
 fullname:{
-    type:stringify,
+    type:String,
     required:true
 },
 email:{
@@ -28,26 +28,27 @@ description:{
     type:String
 },
 
-personalBlog:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: personalBlog
-},
+// personalBlog:{
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: personalBlog
+// },
 
-techBlog:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref:techBlog
-},
+// techBlog:{
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref:techBlog
+// },
 
 avatar:{
-
+    type:String,  //use the cloudinary url
+    required:true 
 },
 accessToken:{
     type: String,
-    required:true
+    // required:true
 },
 refreshToken:{
     type: String,
-    required:true
+    
 }
 
 
@@ -80,6 +81,20 @@ userSchema.methods.verifyPassword = async function(password) {
     return comparePassword;
 }
 
+// userSchema.methods.generatePasswordHash = function(password){
+    
+
+//     const salt =10;
+//     bcrypt
+//     .hash(password, salt)
+//     .then((hash)=>{
+//         console.log("hash generated for the password: ", hash);
+//     })
+//     .catch((err)=>{
+//         console.log("error while generating hash of password: ", err)
+//     })
+    
+// }
 
 userSchema.methods.generateAccessToken = function(){
     return jwt.sign(
