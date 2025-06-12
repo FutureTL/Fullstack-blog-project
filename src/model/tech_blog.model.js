@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { User } from "./user.model";
+import { User } from "./user.model.js";
 
 const techBlogSchema = new mongoose.Schema({
 
@@ -9,7 +9,7 @@ const techBlogSchema = new mongoose.Schema({
     },
     author:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:User
+        ref:"User"
     }
 
 }, {timestamp:true})

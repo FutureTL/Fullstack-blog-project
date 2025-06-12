@@ -1,4 +1,6 @@
 import { User } from "../model/user.model.js";
+import { personalBlog } from "../model/personal_blog.model.js";
+import { techBlog } from "../model/tech_blog.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { uploadToCloudinary } from "../utils/cloudinary.js";
@@ -161,12 +163,49 @@ const loginUser = asyncHandler( async(req, res, next) => {
 //now I have completed the routes- register and login
 //now our focus will be blog routes- tech and personal.
 
+const personalBlogs = asyncHandler(async(req, res, next)=>{
+    //here a user will be able to see all the personal blogs published 
+    //latest appearing first.
 
+    //logic: we will get all the personal blogs published- latest first:
+  const allPersonalBlogs =  await personalBlog.find({}).sort({"createdAt":-1})
+  
+  console.log("returning the response to the user: ", new ApiResponse(200, allPersonalBlogs, "see api resonse to the user"));
 
+  return res
+  .status(201)
+  .json(new ApiResponse(
+    200,
+    allPersonalBlogs,
+    "All personal blogs shared with user!"
+  ))
+
+})
+
+const techBlogs = asyncHandler(async(req, res, next)=>{
+    //here a user will be able to see all the personal blogs published 
+    //latest appearing first.
+
+    //logic: we will get all the personal blogs published- latest first:
+  const alltechBlogs =  await techBlog.find({}).sort({"createdAt":-1})
+  
+  console.log("returning the response to the user: ", new ApiResponse(200, alltechBlogs, "see api resonse to the user"));
+
+  return res
+  .status(201)
+  .json(new ApiResponse(
+    200,
+    alltechBlogs,
+    "All tech blogs shared with user!"
+  ))
+
+})
 
 
 
 export {
   registerUser,
-  loginUser
+  loginUser,
+  personalBlogs,
+  techBlogs
 }

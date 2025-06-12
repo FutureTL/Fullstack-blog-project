@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 
+
 const userSchema = new mongoose.Schema({
 
 username:{
@@ -27,15 +28,15 @@ description:{
     type:String
 },
 
-// personalBlog:{
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: personalBlog
-// },
+personalBlog:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "personalBlog"
+},
 
-// techBlog:{
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref:techBlog
-// },
+techBlog:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"techBlog"
+},
 
 avatar:{
     type:String,  //use the cloudinary url

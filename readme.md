@@ -86,3 +86,8 @@ Solution: I changed upload.single used in multer.middleware.js code to -> upload
 
 Solution: In postman I had set body and then form-data, so this format expects a middleware like multer because it is used for sending files also along with normal text values. 
    - I had to select raw in body and actually send json data. Caution: for this your app.js should have app.use(express.json())
+
+Error: cannot access "USER" before initialization.
+I am getting the error from using User reference in personal_blog.model.js line 12.
+- ONE reason why this error might be obtained is due to circular dependency, we are calling personalBlog in User and User in personalBlog. lets see.
+-solution- lol! The problem was not circular dependency. I will not putting the name of the reference in " ". I had to write ref: "User" , not User.
