@@ -17,7 +17,8 @@ app.use(express.json({
 //for receiving json data
 
 app.use(express.urlencoded({
-    limit:"20kb"
+    limit:"20kb",
+    extended:true
 }))
 //for receiving url data
 

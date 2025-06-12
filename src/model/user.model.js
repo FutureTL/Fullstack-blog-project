@@ -21,8 +21,7 @@ email:{
 },
 password:{
     type:String,
-    required:true,
-    minLength:6
+    
 },
 description:{
     type:String
@@ -76,6 +75,7 @@ refreshToken:{
 
 //the correct code is below:
 userSchema.methods.verifyPassword = async function(password) {
+    console.log("password of user saved in database: ", this.password)
     const comparePassword = await bcrypt.compare(password, this.password)
     console.log(`${password} VS ${this.password}`)
     return comparePassword;

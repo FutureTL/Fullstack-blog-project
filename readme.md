@@ -75,9 +75,14 @@ June 8th 2025
 Json web token -https://github.com/dwyl/learn-json-web-tokens/blob/main/README.md
 - now I have to write logic for registering and logging the user.
 
-Register user logic will be written in  user.controller.js
+1. Register user logic will be written in  user.controller.js
 
 I wrote the entire register user logic along with also modifying the code of the routes to finally check it on postman. 
 I was getting the bug- avatar image not found (user.controller.js line 62)
 
 Solution: I changed upload.single used in multer.middleware.js code to -> upload.fields and the problem got resolved.
+
+2. While logging in the user I got an error in postman- req.body cannot be destructured.
+
+Solution: In postman I had set body and then form-data, so this format expects a middleware like multer because it is used for sending files also along with normal text values. 
+   - I had to select raw in body and actually send json data. Caution: for this your app.js should have app.use(express.json())
