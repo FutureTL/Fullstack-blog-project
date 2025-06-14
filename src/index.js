@@ -4,6 +4,12 @@ import { app } from  "./app.js";
 
 
 
+import { personalBlog } from "./model/personal_blog.model.js";
+import mongoose from "mongoose";
+import { User } from "./model/user.model.js";
+import { ApiError } from "./utils/ApiError.js";
+
+
 dotenv.config({
     path: './env'
 })
@@ -25,3 +31,22 @@ mongodbConnect()
 .catch((error)=>{
     console.log("database connection has failed: ", error)
 })
+
+//this is my test code:
+const user = await User.findOne({
+    username:"oravm"
+})
+
+if(!user){
+    throw new ApiError(409, "this user does not exist");
+}
+
+
+
+const firstBlog = await personalBlog.create({
+    title: "My 1st blog",
+    author: user._id,
+    content:"My day is not going that great. I feel like laying back and just reading a book."
+})
+
+console.log("my first test blog: ", firstBlog)

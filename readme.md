@@ -91,3 +91,6 @@ Error: cannot access "USER" before initialization.
 I am getting the error from using User reference in personal_blog.model.js line 12.
 - ONE reason why this error might be obtained is due to circular dependency, we are calling personalBlog in User and User in personalBlog. lets see.
 -solution- lol! The problem was not circular dependency. I will not putting the name of the reference in " ". I had to write ref: "User" , not User.
+
+OK, so now I have written the logic for tech-blogs and personal-blogs, its time to test it. Since I don't have any blogs written and both these routes have get request, we have to use a different way of testing.
+- 

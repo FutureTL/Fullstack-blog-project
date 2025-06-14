@@ -201,11 +201,35 @@ const techBlogs = asyncHandler(async(req, res, next)=>{
 
 })
 
+const allwriters = asyncHandler( async(req, res,next)=>{
+
+  //here the list of all the writers will be displayed. 
+  //guide for the frontend engineer- the information will be displayed in
+  //in the form of playcards each showing the following details of the user:
+    // 1. fullname
+    // 2. username
+    // 3. description
+    // 4. tech-blogs of the user
+    // 5. personal- blogs of the user
+
+    //as it is a get request we have to send and display data to the user.
+
+    const user = await User.find({}).sort({fullname:1}).select("-password -refreshToken -accessToken -createdAt -updatedAt -_id")
+
+    return res
+    .status(200)
+    .json(
+      new ApiResponse(200, user, "Here is the list of all the users")
+    )
+
+})
+
 
 
 export {
   registerUser,
   loginUser,
   personalBlogs,
-  techBlogs
+  techBlogs,
+  allwriters
 }
