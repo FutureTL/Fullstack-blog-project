@@ -1,4 +1,4 @@
-import {loginUser, registerUser, personalBlogs, techBlogs, allwriters} from "../controller/user.controller.js";
+import {loginUser, registerUser, personalBlogs, techBlogs, allwriters, particularWriterDetails} from "../controller/user.controller.js";
 import express from "express"
 import { upload } from "../middleware/multer.middleware.js";
 
@@ -18,6 +18,8 @@ router.route("/personal-blogs").get(personalBlogs)
 router.route("/tech-blogs").get(techBlogs);
 
 router.route("/our-writers").get(allwriters);
+
+router.route("/our-writers/:username").get(particularWriterDetails);
 
 
 export default router;

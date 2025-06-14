@@ -224,6 +224,32 @@ const allwriters = asyncHandler( async(req, res,next)=>{
 
 })
 
+const particularWriterDetails = asyncHandler( async(req, res, next)=>{
+
+  //from the list of all the writers displayed, the user clicks on the profile
+  //of a particular writer and is directed to the url- /our-writers/username-of-the-author
+  //then we have to fetch and display the details of that particular writer.
+
+  //now here, we need the information from the frontend that which writer was
+  //clicked by the user,then only we can display his/her details.
+  
+  //as we have created the route using the username of the writer, that value, 
+  //can be fetched using req.params
+
+  const username = req.params.username;
+  const user = await User.find({username: username}).select("-password -accessToken -refreshToken -id");
+
+  console.log("writer details: ", user.fullname)
+  return res
+  .status(201)
+  .json(
+    new ApiResponse(200, user, `here are the details of ${user.fullname} having username: ${user. username}`)
+  )
+
+
+
+})
+
 
 
 export {
@@ -231,5 +257,6 @@ export {
   loginUser,
   personalBlogs,
   techBlogs,
-  allwriters
+  allwriters,
+  particularWriterDetails
 }
