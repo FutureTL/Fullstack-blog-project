@@ -6,50 +6,54 @@ import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema({
 
-username:{
-    type:String,
-    required:true,
-    unique:true
-},
-fullname:{
-    type:String,
-    required:true
-},
-email:{
-    type:String,
-    required:true,
-    unique:true
-},
-password:{
-    type:String,
-    
-},
-description:{
-    type:String
-},
+        username:{
+            type:String,
+            required:true,
+            unique:true
+        },
+        fullname:{
+            type:String,
+            required:true
+        },
+        email:{
+            type:String,
+            required:true,
+            unique:true
+        },
+        password:{
+            type:String,
+            
+        },
+        description:{
+            type:String
+        },
 
-personalBlog:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "personalBlog"
-},
+        personalBlog:[
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "personalBlog"
+            }
+        ],
 
-techBlog:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref:"techBlog"
-},
+        techBlog:[
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref:"techBlog"
+            }
+        ],
 
-avatar:{
-    type:String,  //use the cloudinary url
-    required:true 
-},
-accessToken:{
-    type: String,
-    // required:true
-},
-refreshToken:{
-    type: String,
-    
-}
+        avatar:{
+            type:String,  //use the cloudinary url
+            required:true 
+        },
+        accessToken:{
+            type: String,
+            // required:true
+        },
+        refreshToken:{
+            type: String,
+            
+        }
 
 
 
